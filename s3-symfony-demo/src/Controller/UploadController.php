@@ -3,22 +3,23 @@
 namespace App\Controller;
 
 use Chapterphp\FileSystem\FileSystemInterface;
-use Chapterphp\FileSystem\Model\FileName;
+use Chapterphp\FileSystem\Model\File;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DeleteController extends AbstractController
+class UploadController extends AbstractController
 {
     /**
-     * @Route("/delete/{file_name}", name="delete", methods={"DELETE"})
+     * @Route("/upload", name="upload", methods={"POST"})
      */
     public function __invoke(Request $request, FileSystemInterface $s3FileSystem): Response
     {
-        $fileName = $request->get('file_name');
-        $s3FileSystem->delete(FileName::create($fileName));
+        $file = File::createFromUpload($request->files->get('upload'));
 
-        return new Response(null, 200);
+        $s3FileSystem->save($file);
+
+        return new Response(null,201);
     }
 }

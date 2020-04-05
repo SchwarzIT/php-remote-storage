@@ -5,12 +5,13 @@ declare(strict_types = 1);
 namespace Chapterphp\FileSystem;
 
 use Chapterphp\FileSystem\Model\File;
+use Chapterphp\FileSystem\Model\FileMeta;
 use Chapterphp\FileSystem\Model\FileName;
 
 interface FileSystemInterface
 {
     /**
-     * @return FileName[]
+     * @return FileMeta[]
      */
     public function list(): array;
 

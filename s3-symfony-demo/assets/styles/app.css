@@ -1,20 +1,27 @@
 .iconify {
-    font-size: 25px;
-    margin: 0 10px;
+  font-size: 25px;
+  margin: 0 10px;
 }
+
 .content {
-    margin-top: 80px;
-    position: relative;
+  margin-top: 80px;
+  position: relative;
 }
+
 #upload {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px 20px;
-    margin-bottom: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  margin: 10px;
 }
+
 #upload .iconify {
-    color: #7b2083;
-    font-weight: 700;
-    font-size: 60px;
+  color: #7b2083;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+#upload .custom-file-upload {
+  cursor: pointer;
 }

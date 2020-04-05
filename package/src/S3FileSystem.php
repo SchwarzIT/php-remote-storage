@@ -32,7 +32,7 @@ final class S3FileSystem implements FileSystemInterface
     }
 
     /**
-     * @return FileName[]
+     * @return FileMeta[]
      *
      * @throws S3FileSystemException
      */
