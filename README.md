@@ -95,7 +95,7 @@ services:
     - download file
     - delete file
     - upload file
-- [🔥] update the README: how to config S3 client + S3FileSystem
+- [✅] update the README: how to config S3 client + S3FileSystem
 - [🔥] complete the unit tests
 
 ## licence
