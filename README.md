@@ -90,7 +90,11 @@ services:
 ```
 
 ## Open Todos:
-- [🔥] implement Symfony 5 Demo with AWS S3 Integraiton
+- [✅] implement Symfony 5 Demo with AWS S3 Integraiton
+    - list files
+    - download file
+    - delete file
+    - upload file
 - [🔥] update the README: how to config S3 client + S3FileSystem
 - [🔥] complete the unit tests
 
