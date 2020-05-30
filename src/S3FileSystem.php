@@ -2,11 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace Chapterphp\FileSystem\S3FileSystem;
+namespace Chapterphp\FileSystem;
 
 use Aws\S3\S3Client;
 use Chapterphp\FileSystem\Exception\S3FileSystemException;
-use Chapterphp\FileSystem\FileSystemInterface;
 use Chapterphp\FileSystem\Model\File;
 use Chapterphp\FileSystem\Model\FileName;
 use Throwable;
@@ -60,6 +59,8 @@ final class S3FileSystem implements FileSystemInterface
         } catch (Throwable $exception) {
             S3FileSystemException::onSaveObject($exception->getMessage());
         }
+
+        return $file->getFileName()->toString();
     }
 
     private function getRequestObjectConfig(FileName $fileName): array
