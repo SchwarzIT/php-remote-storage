@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+    minio_s3:
+        image: minio/minio
+        ports:
+            - "9001:9000"
+        volumes:
+            - ./docker/minio:/data
+        environment:
+            MINIO_ACCESS_KEY: I3uWTHZGke8RWa1j
+            MINIO_SECRET_KEY: G0OC3OYQ5Qw59z61
+        entrypoint: sh
+        command: -c 'mkdir -p /data/dev && mkdir -p /data/test && mkdir -p /data/dump && /usr/bin/minio server /data'
