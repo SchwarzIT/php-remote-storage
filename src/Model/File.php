@@ -89,7 +89,7 @@ class File implements FileInterface
         return unlink($this->fileInfo->getRealPath());
     }
 
-    private function setMimeType(?string $mimeType): ?string
+    private function setMimeType(?string $mimeType): void
     {
         $fileLocation = $this->getFileLocation();
         if (null === $mimeType && null !== $fileLocation) {
