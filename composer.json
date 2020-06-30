@@ -21,7 +21,8 @@
         "symfony/uid": "5.x-dev",
         "symfony/http-foundation": "5.x-dev",
         "symfony/mime": "5.x-dev",
-        "aws/aws-sdk-php": "^3.178"
+        "aws/aws-sdk-php": "^3.178",
+        "symfony/var-dumper": "5.x-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "8.5.x-dev"
