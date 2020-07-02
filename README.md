@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="./docs/php.png" width="140px" alt="aino" />
-  <h2>Chapter PHP Filesystem Wrapper</h2>
-  <p>Manage the filesystem easily in Symfony Project</p>
+  <img src="./docs/s3-php.png" width="340px" alt="aino" />
+  <h2>A Filesystem Wrapper for AWS S3</h2>
+  <p>Manage the remote files on AWS S3 simple as possible</p>
 
   <p>
     <a href="#">
@@ -27,7 +27,7 @@ composer update
 
 ## Test
 ```bash
-phpunit tests 
+composer tests 
 ```
 
 
