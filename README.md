@@ -30,6 +30,21 @@ composer update
 composer tests 
 ```
 
+## Use the `S3FileSystem` in pure PHP
+```php
+// instantiate S3 File system
+$s3FileSystem = new S3FileSystem($s3Client, self::TEST_S3_BUCKET);
+
+// upload a test file
+$s3FileSystem->save($pngFile);
+
+// delete a test file
+$s3FileSystem->delete($pdfFile);
+
+// load a test file
+$s3FileSystem->get($pdfFile);
+```
+
 
 ## licence
 
