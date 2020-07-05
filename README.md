@@ -47,6 +47,27 @@ $s3FileSystem->get($pdfFile);
 // more info see S3FileSystemTest.php
 ```
 
+## Use the `S3FileSystem` in Symfony Project
+```yaml
+services:
+    Aws\S3\S3Client:
+        arguments:
+            -   region: '%env(S3_REGION)%'
+                endpoint: '%env(S3_ENDPOINT)%'
+                version: '2006-03-01'
+                use_path_style_endpoint: true
+                credentials:
+                    key: '%env(S3_ACCESS_KEY)%'
+                    secret: '%env(S3_ACCESS_SECRET)%'
+
+    Chapterphp\FileSystem\FileSystemInterface: '@Chapterphp\FileSystem\S3FileSystem'
+
+```
+
+## Open Todos:
+- [🔥] implement Symfony 5 Demo with AWS S3 Integraiton
+- [🔥] update the README: how to config S3 client + S3FileSystem
+- [🔥] complete the unit tests
 
 ## licence
 
