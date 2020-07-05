@@ -43,6 +43,8 @@ $s3FileSystem->delete($pdfFile);
 
 // load a test file
 $s3FileSystem->get($pdfFile);
+
+// more info see S3FileSystemTest.php
 ```
 
 
