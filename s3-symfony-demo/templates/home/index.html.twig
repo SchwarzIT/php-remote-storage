@@ -2,37 +2,48 @@
 
 {% block title %}AWS S3 + Symfony Demo{% endblock %}
 {% block body %}
-<div class="hero is-primary">
-    <div class="container">
-        <h1 class="opacity-75">Symfony + S3 Bucket</h1>
-        <h4 class="opacity-75">AWS S3 Filesystem</h4>
-        <h5 class="opacity-50">Make the usage of <code>AWS S3 Bucket</code> simple as possible by using ONLY <code>Aws-php-sdk</code></h5>
+    <div class="hero is-primary">
+        <div class="container">
+            <h1 class="opacity-75">Symfony + S3 Bucket</h1>
+            <h4 class="opacity-75">AWS S3 Filesystem</h4>
+            <h5 class="opacity-50">Make the usage of <code>AWS S3 Bucket</code> simple as possible by using ONLY <code>Aws-php-sdk</code></h5>
+        </div>
     </div>
-</div>
 
-<div class="container my-2">
-    <h3><span class="opacity-25">minio/test/</span></h3>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Size (bytes)</th>
-            <th>Last Modified</th>
-            <th>Action</th>
-        </tr>
-        {% for fileMeta in items %}
-        <tr>
-            <td>{{ fileMeta.name }}</td>
-            <td>{{ fileMeta.size }}</td>
-            <td>{{ fileMeta.lastModified | date("d-m-Y H:i:s") }}</td>
-            <td>
-                <a href={{ fileMeta.previewUrl }}>
-                    <span class="iconify" data-icon="bytesize:download"></span>
-                </a>
-                <span class="iconify" data-icon="fluent:delete-20-regular"></span>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
+    <div class="container my-2">
+        <h3><span class="opacity-25">minio/test/</span></h3>
+        {% if items is empty %}
+            <div class="container centered-xy my-2 mx-2">
+                <h5 class="emoji opacity-50">⚠️ No document found!</h5>
+            </div>
+        {% else %}
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Size (bytes)</th>
+                    <th>Last Modified</th>
+                    <th>Action</th>
+                </tr>
+                {% for fileMeta in items %}
+                    <tr>
+                        <td>{{ fileMeta.name }}</td>
+                        <td>{{ fileMeta.size }}</td>
+                        <td>{{ fileMeta.lastModified | date("d-m-Y H:i:s") }}</td>
+                        <td>
+                            <a href={{ fileMeta.previewUrl }} target="__blank">
+                                <span class="iconify" data-icon="bytesize:download"></span>
+                            </a>
+                            <a href="/#">
+                                <span class="iconify delete"
+                                      data-filename={{ fileMeta.name }}
+                                      data-icon="fluent:delete-20-regular">
+                            </span>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </div>
 
 {% endblock %}

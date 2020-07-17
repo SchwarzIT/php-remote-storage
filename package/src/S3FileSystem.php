@@ -144,6 +144,10 @@ final class S3FileSystem implements FileSystemInterface
      */
     private function iteratePaginator(ResultPaginator $paginator): array
     {
+        if (!$this->hasResult($paginator)) {
+            return [];
+        }
+
         $fileMetaList = [];
         foreach ($paginator as $result) {
             foreach ($result[self::KEY_S3_RESULT_CONTENTS] as $object) {
@@ -152,5 +156,10 @@ final class S3FileSystem implements FileSystemInterface
         }
 
         return $fileMetaList;
+    }
+
+    private function hasResult(ResultPaginator $paginator): bool
+    {
+        return $paginator->current()->hasKey(self::KEY_S3_RESULT_CONTENTS);
     }
 }

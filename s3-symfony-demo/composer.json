@@ -24,6 +24,7 @@
         "symfony/proxy-manager-bridge": "5.2.*",
         "symfony/twig-bundle": "5.2.*",
         "symfony/uid": "5.x-dev",
+        "symfony/webpack-encore-bundle": "^1.11",
         "symfony/yaml": "5.2.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
