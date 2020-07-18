@@ -10,14 +10,17 @@
         </div>
     </div>
 
-    <div class="container my-2">
+    <div id="content" class="container my-2">
+        <div id="upload">
+            <span class="iconify" data-icon="ant-design:cloud-upload-outlined"></span>
+        </div>
         <h3><span class="opacity-25">minio/test/</span></h3>
         {% if items is empty %}
-            <div class="container centered-xy my-2 mx-2">
+            <div class="content centered-xy">
                 <h5 class="emoji opacity-50">⚠️ No document found!</h5>
             </div>
         {% else %}
-            <table>
+            <table class="content">
                 <tr>
                     <th>Name</th>
                     <th>Size (bytes)</th>
