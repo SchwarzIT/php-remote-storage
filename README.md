@@ -1,8 +1,6 @@
-# Composer Package Starter
-
 <div align="center">
   <img src="./docs/composer.png" width="80px" alt="aino" />
-  <h3>Minimal Composer Package Starter</h3>
+  <h2>Composer Package Starter</h2>
   <p>Create the shared PHP package and manage them with composer</p>
 
   <p>
