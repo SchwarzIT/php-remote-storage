@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./docs/composer.png" width="80px" alt="aino" />
+  <img src="./docs/composer.png" width="140px" alt="aino" />
   <h2>Composer Package Starter</h2>
   <p>Create the shared PHP package and manage them with composer</p>
 
