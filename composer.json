@@ -1,21 +1,21 @@
 {
-    "name": "stilliard/composer-package-boilerplate",
-    "description": "Demo",
+    "name": "chapterphp/composer-package-starter",
+    "description": "Package description",
     "license": "MIT",
     "authors": [
         {
-            "name": "Andrew Stilliard",
-            "email": "andrew.stilliard@gmail.com"
+            "name": "Xun Zhou",
+            "email": "xun.zhoup@mail.schwarz"
         }
     ],
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Demo\\": "src",
-            "Demo\\Tests\\": "tests"
+            "Chapterphp\\": "src",
+            "Chapterphp\\Tests\\": "tests"
         }
     },
     "require": {
-        "php": ">=5.3"
+        "php": ">=7.1"
     }
 }
