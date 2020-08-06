@@ -1,10 +1,12 @@
+SHELL := /bin/bash
 
-install:
-	composer install --no-interaction
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$|(^#--)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m %-43s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m #-- /[33m/'
 
-update:
-	composer update
+.PHONY: help
+.DEFAULT_GOAL := help
 
-test:
-	phpunit tests
-
+#-- start symfony & minio
+start: ## clean up all docker resource
+	docker-compose up -d
+	cd s3-symfony-demo && symfony serve
