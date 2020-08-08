@@ -3,9 +3,46 @@
 {% block title %}AWS S3 + Symfony Demo{% endblock %}
 {% block body %}
 <div class="hero is-primary">
-  <div class="container">
-  <h1 class="opacity-50">AWS S3 Filesystem Wrapper</h1>
-  <h5>Make the usage of <code>AWS S3 Bucket</code> simple as possible by using ONLY <code>Aws-php-sdk</code></h5>
-  </div>
+    <div class="container">
+        <h1 class="opacity-75">Symfony + S3 Bucket</h1>
+        <h4 class="opacity-75">AWS S3 Filesystem</h4>
+        <h5 class="opacity-50">Make the usage of <code>AWS S3 Bucket</code> simple as possible by using ONLY <code>Aws-php-sdk</code></h5>
+    </div>
+</div>
+
+<div class="container my-2">
+    <h3><span class="opacity-25">minio/test/</span></h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Size (bytes)</th>
+            <th>Last Modified</th>
+            <th>Action</th>
+        </tr>
+        {% for fileMeta in items %}
+        <tr>
+            <td>{{ fileMeta.name }}</td>
+            <td>{{ fileMeta.size }}</td>
+            <td>{{ fileMeta.lastModified | date("d-m-Y H:i:s") }}</td>
+            <td>
+                <a href={{ fileMeta.previewUrl }}>
+                    <span class="iconify" data-icon="bytesize:download"></span>
+                </a>
+                <span class="iconify" data-icon="fluent:delete-20-regular"></span>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="container my-2">
+    <ul>
+        <li>list the documents</li>
+        <li>upload the doucment</li>
+        <li>show document</li>
+        <li>download a document</li>
+        <li>delete a doucment</li>
+        <li>delete mutiple documents</li>
+    </ul>
 </div>
 {% endblock %}

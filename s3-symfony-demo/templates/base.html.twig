@@ -12,15 +12,26 @@
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
+            <script defer src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
         {% endblock %}
+        <style>
+            .iconify {
+              font-size: 25px;
+              margin: 0 10px;
+            }
+        </style>
     </head>
     <body>
     <header class="header">
       <nav class="topbar">
         <div class="container space-between">
-            <div class="emoji">🛵</div>
+            <span class="iconify" data-icon="logos:aws" data-inline="false" width=45></span>
             <strong>Symfony5 Demo</strong>
-            <div class="emoji">👨🏻‍💻</div>
+            <divs>
+                <a href="https://github.com/SchwarzIT/php-filesystem">
+                <span class="iconify" data-icon="ant-design:github-outlined" data-inline="false" width=30></span>
+                </a>
+            </divs>
         </div>
       </nav>
     </header>
