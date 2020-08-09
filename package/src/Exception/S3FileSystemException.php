@@ -8,6 +8,11 @@ use Exception;
 
 final class S3FileSystemException extends Exception
 {
+    public static function onListObjects(string $message): void
+    {
+        throw new self(sprintf('Listing the objects from S3 bucket failed: %s', $message));
+    }
+
     public static function onLoadObject(string $message): void
     {
         throw new self(sprintf('Loading the object from S3 bucket failed: %s', $message));

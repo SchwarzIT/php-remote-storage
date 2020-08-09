@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Chapterphp\FileSystem\Dto;
+namespace Chapterphp\FileSystem\Model;
 
 use DateTimeImmutable;
 
