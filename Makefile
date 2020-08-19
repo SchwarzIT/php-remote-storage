@@ -10,3 +10,11 @@ help:
 start: ## clean up all docker resource
 	docker-compose up -d
 	cd s3-symfony-demo && symfony serve
+
+
+#-- stop symfony & minio
+stop: ## clean up all docker resource
+	docker-compose stop
+	cd s3-symfony-demo && symfony server:stop
+
+
