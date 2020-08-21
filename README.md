@@ -30,12 +30,16 @@ make install
 make start
 ```
 
-> after start, access `MinIO` on `http://localhost:9001/` and Symfony demo App on `https://127.0.0.1:8000/`
+> `MinIO` on http://localhost:9001/
+> - Access-Key: `I3uWTHZGke8RWa1j` 
+> - secret-Key: `G0OC3OYQ5Qw59z61`
+
+
+> `Symfony demo App` on https://127.0.0.1:8000/
 
 #### MinIO login credentials
 
-- Access-Key: `I3uWTHZGke8RWa1j`
-- secret-Key: `G0OC3OYQ5Qw59z61`
+
 
 ## Stop
 ```bash
