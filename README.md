@@ -23,30 +23,27 @@
 </div>
 
 
-## Start
+# Start
 ```bash
 git clone git@github.com:SchwarzIT/php-filesystem.git && cd php-filesystem
 make install
 make start
 ```
 
-> `MinIO` on http://localhost:9001/
+> http://localhost:9001/ for `MinIO` bucket
 > - Access-Key: `I3uWTHZGke8RWa1j` 
 > - secret-Key: `G0OC3OYQ5Qw59z61`
 
 
-> `Symfony demo App` on https://127.0.0.1:8000/
-
-#### MinIO login credentials
+> https://127.0.0.1:8000/ for `Symfony demo App`
 
 
-
-## Stop
+# Stop
 ```bash
 make stop
 ```
 
-## Test
+# Test
 ```bash
 make test
 ```
