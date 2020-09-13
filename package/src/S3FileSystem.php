@@ -9,8 +9,8 @@ use Aws\ResultPaginator;
 use Aws\S3\S3Client;
 use Chapterphp\FileSystem\Exception\S3FileSystemException;
 use Chapterphp\FileSystem\Model\File;
-use Chapterphp\FileSystem\Model\FileName;
 use Chapterphp\FileSystem\Model\FileMeta;
+use Chapterphp\FileSystem\Model\FileName;
 use Throwable;
 
 final class S3FileSystem implements FileSystemInterface
@@ -38,16 +38,16 @@ final class S3FileSystem implements FileSystemInterface
      */
     public function list(): array
     {
-        $fileNames = [];
+        $metaData = [];
         try {
             $paginator = $this->s3Client->getPaginator(self::KEY_S3_LIST, $this->getPaginatorConfig());
 
-            $fileNames = $this->iteratePaginator($paginator);
+            $metaData = $this->iteratePaginator($paginator);
         } catch (\Exception $exception) {
             S3FileSystemException::onListObjects($exception->getMessage());
         }
 
-        return $fileNames;
+        return $metaData;
     }
 
     /**
@@ -73,7 +73,10 @@ final class S3FileSystem implements FileSystemInterface
     public function preview(FileName $fileName): string
     {
         try {
-            $request = $this->s3Client->createPresignedRequest($this->getObjectCommand($fileName), '+20 minutes');
+            $request = $this->s3Client->createPresignedRequest(
+                $this->getObjectCommand($fileName),
+                '+20 minutes'
+            );
 
             return (string) $request->getUri();
         } catch (Throwable $exception) {

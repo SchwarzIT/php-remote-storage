@@ -16,8 +16,5 @@ interface FileInterface
 
     public function getFileLocation(): ?string;
 
-    /**
-     * return TRUE, only if the file is deleted with success
-     */
     public function delete(): bool;
 }
