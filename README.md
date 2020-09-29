@@ -73,7 +73,10 @@ $s3FileSystem->get($pdfFile);
 ```
 
 ## Use the `S3FileSystem` in Symfony Project
+
+config the `AWS S3 Client` and `S3FileSystem`
 ```yaml
+## config/packages/s3.yaml
 services:
     Aws\S3\S3Client:
         arguments:
@@ -86,8 +89,17 @@ services:
                     secret: '%env(S3_ACCESS_SECRET)%'
 
     Chapterphp\FileSystem\FileSystemInterface: '@Chapterphp\FileSystem\S3FileSystem'
-
 ```
+
+config the services for the package ``
+```yaml
+### config/services.yaml
+services:
+    Chapterphp\FileSystem\S3FileSystem:
+        arguments:
+            $s3Bucket: '%env(S3_BUCKET)%'
+```
+
 
 ## Open Todos:
 - [✅] implement Symfony 5 Demo with AWS S3 Integraiton
