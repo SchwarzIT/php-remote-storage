@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="./docs/composer.png" width="140px" alt="aino" />
-  <h2>Composer Package Starter</h2>
-  <p>Create the shared PHP package and manage them with composer</p>
+  <img src="./docs/php.png" width="140px" alt="aino" />
+  <h2>Chapter PHP Filesystem Wrapper</h2>
+  <p>Manage the filesystem easily in Symfony Project</p>
 
   <p>
     <a href="#">
