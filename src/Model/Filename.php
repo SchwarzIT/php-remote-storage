@@ -9,28 +9,44 @@ use Webmozart\Assert\Assert;
 
 class Filename
 {
-    private $name;
+    private $base;
+    private $extension;
 
-    public function __construct(string $name)
+    public function __construct(string $base, string $extension)
     {
-        $this->name = $name;
+        $this->base = $base;
+        $this->extension = $extension;
     }
 
     public static function create(string $name): self
     {
-        return new self(self::simplify($name));
+        [$base, $extension] = self::resolveFileSegments(self::simplify($name));
+
+        return new self($base, $extension);
     }
 
     public static function createUnique(string $name): self
     {
+        [$base, $extension] = self::resolveFileSegments(self::simplify($name));
+
         return new self(
             sprintf(
-                '%s-%s.%s',
-                self::simplify($name),
-                Uuid::v4()->toBase32(),
-                self::getExtension($name)
-            )
+                '%s-%s',
+                $base,
+                Uuid::v4()->toBase32()
+            ),
+            $extension
         );
+    }
+
+    public function getBase(): string
+    {
+        return $this->base;
+    }
+
+    public function getExtension(): string
+    {
+        return $this->extension;
     }
 
     /**
@@ -38,20 +54,19 @@ class Filename
      */
     public function toString(): string
     {
-        return $this->name;
+        return sprintf('%s.%s', $this->base, $this->extension);
     }
 
     private static function simplify(string $name): string
     {
-        $basename = pathinfo($name, PATHINFO_FILENAME);
+        $base = pathinfo($name, PATHINFO_FILENAME);
+        $extension = pathinfo($name, PATHINFO_EXTENSION);
 
-        $asciiString = transliterator_transliterate('Any-Latin; Latin-ASCII', $basename);
+        $asciiString = transliterator_transliterate('Any-Latin; Latin-ASCII', $base);
         $simplified = preg_replace('/[^A-Za-z0-9_-]/', '_', $asciiString);
         $simplified = preg_replace('/[_]+/', '_', $simplified);
 
-        Assert::notEmpty($name, sprintf('Invalid parameter $name: "%s"', $name));
-
-        return $simplified;
+        return sprintf('%s.%s', $simplified, $extension);
     }
 
     /**
@@ -66,10 +81,5 @@ class Filename
         Assert::notEmpty($extension, sprintf('Invalid extension name: "%s"', $extension));
 
         return [$base, $extension];
-    }
-
-    private static function getExtension(string $name): string
-    {
-        return strtolower(pathinfo($name, PATHINFO_EXTENSION));
     }
 }
