@@ -50,6 +50,10 @@ class FilenameTest extends TestCase
             ['fooÖ.txt', 'fooO.txt'],
             ['fooß.txt', 'fooss.txt'],
             ['foo$.txt', 'foo_.txt'],
+            ['foo?.txt', 'foo_.txt'],
+            ['foo%.txt', 'foo_.txt'],
+            ['foo&.txt', 'foo_.txt'],
+            ['(foo).txt', '_foo_.txt'],
         ];
     }
 }
