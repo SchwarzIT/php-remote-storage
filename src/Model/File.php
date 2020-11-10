@@ -8,7 +8,7 @@ use SplFileInfo;
 
 class File
 {
-    public function __construct(SplFileInfo $fileInfo, Filename $filename)
+    public function __construct(SplFileInfo $fileInfo, FileName $filename)
     {
     }
 }

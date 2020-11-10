@@ -4,18 +4,18 @@ declare(strict_types = 1);
 
 namespace Chapterphp\Tests\Model;
 
-use Chapterphp\FileSystem\Model\Filename;
+use Chapterphp\FileSystem\Model\FileName;
 use PHPUnit\Framework\TestCase;
 
-class FilenameTest extends TestCase
+class FileNameTest extends TestCase
 {
     public function testCreate(): void
     {
-        $filename = Filename::create('foo.pdf');
+        $fileName = FileName::create('foo.pdf');
 
-        $this->assertEquals('foo', $filename->getBase());
-        $this->assertEquals('pdf', $filename->getExtension());
-        $this->assertEquals('foo.pdf', $filename->toString());
+        $this->assertEquals('foo', $fileName->getBase());
+        $this->assertEquals('pdf', $fileName->getExtension());
+        $this->assertEquals('foo.pdf', $fileName->toString());
     }
 
     public function testCreateUnique(): void
@@ -24,8 +24,8 @@ class FilenameTest extends TestCase
         $results = [];
 
         for ($i = 1; $i <= $amount; ++$i) {
-            $filename = Filename::createUnique('foo.pdf');
-            $results[$filename->getBase()] = $filename;
+            $fileName = FileName::createUnique('foo.pdf');
+            $results[$fileName->getBase()] = $fileName;
         }
 
         $this->assertCount($amount, $results);
@@ -36,9 +36,9 @@ class FilenameTest extends TestCase
      */
     public function testBaseNameAreSimplified(string $original, string $expected): void
     {
-        $filename = Filename::create($original);
+        $fileName = FileName::create($original);
 
-        $this->assertEquals($expected, $filename->toString());
+        $this->assertEquals($expected, $fileName->toString());
     }
 
     public function getTestDataToBeSimplified(): array

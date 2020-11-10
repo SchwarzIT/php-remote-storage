@@ -7,7 +7,7 @@ namespace Chapterphp\FileSystem\Model;
 use Symfony\Component\Uid\Uuid;
 use Webmozart\Assert\Assert;
 
-class Filename
+class FileName
 {
     private $base;
     private $extension;
