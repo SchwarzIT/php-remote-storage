@@ -8,9 +8,16 @@ use Chapterphp\FileSystem\Model\FileName;
 
 interface FileInterface
 {
-    public function getFilename(): FileName;
-    public function getMimeType(): ?string;
-    public function getContent(): ?string;
+    public function getFileName(): FileName;
+
+    public function getFileMimeType(): ?string;
+
+    public function getFileContent(): ?string;
+
     public function getFileLocation(): ?string;
-    public function delete(): void;
+
+    /**
+     * return TRUE, only if the file is deleted with success
+     */
+    public function delete(): bool;
 }
