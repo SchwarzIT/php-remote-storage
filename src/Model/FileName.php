@@ -20,14 +20,14 @@ class FileName
 
     public static function create(string $name): self
     {
-        [$base, $extension] = self::resolveFileSegments(self::simplify($name));
+        [$base, $extension] = self::resolveFileName(self::simplify($name));
 
         return new self($base, $extension);
     }
 
     public static function createUnique(string $name): self
     {
-        [$base, $extension] = self::resolveFileSegments(self::simplify($name));
+        [$base, $extension] = self::resolveFileName(self::simplify($name));
 
         return new self(
             sprintf(
@@ -72,7 +72,7 @@ class FileName
     /**
      * @return string[]
      */
-    private static function resolveFileSegments(string $name): array
+    private static function resolveFileName(string $name): array
     {
         $base = pathinfo($name, PATHINFO_FILENAME);
         $extension = pathinfo($name, PATHINFO_EXTENSION);

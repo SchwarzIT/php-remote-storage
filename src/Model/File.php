@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace Chapterphp\FileSystem\Model;
 
 use Chapterphp\FileSystem\FileInterface;
+use Chapterphp\FileSystem\Utils\MimeTypeResolver;
 use Exception;
 use SplFileInfo;
 use SplFileObject;
@@ -21,7 +22,8 @@ class File implements FileInterface
     {
         $this->fileInfo = $fileInfo;
         $this->fileName = $fileName;
-        $this->mimeType = $mimeType;
+
+        $this->setMimeType($mimeType);
     }
 
     public static function createFromFileInfo(SplFileInfo $fileInfo): self
@@ -85,6 +87,16 @@ class File implements FileInterface
         }
 
         return unlink($this->fileInfo->getRealPath());
+    }
+
+    private function setMimeType(?string $mimeType): ?string
+    {
+        $fileLocation = $this->getFileLocation();
+        if (null === $mimeType && null !== $fileLocation) {
+            $mimeType = MimeTypeResolver::resolveMimeType($fileLocation);
+        }
+
+        $this->mimeType = $mimeType;
     }
 
     private function getContentFromStream(): string
