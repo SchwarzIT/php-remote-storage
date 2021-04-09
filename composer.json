@@ -1,6 +1,6 @@
 {
-    "name": "chapterphp/composer-package-starter",
-    "description": "Package description",
+    "name": "chapterphp/filesystem",
+    "description": "A php wrapper to manage the file system easily",
     "license": "MIT",
     "authors": [
         {
@@ -11,11 +11,13 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Chapterphp\\": "src",
-            "Chapterphp\\Tests\\": "tests"
+            "Chapterphp\\FileSystem\\": "src",
+            "Chapterphp\\FileSystem\\Tests\\": "tests"
         }
     },
     "require": {
-        "php": ">=7.1"
+        "php": ">=7.1",
+        "webmozart/assert": "1.10.x-dev",
+        "symfony/uid": "5.x-dev"
     }
 }
