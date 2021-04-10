@@ -15,19 +15,26 @@
 
 ---
 
-## Install
+## Local AWS S3 with `MinIO`
+
+<div align="center">
+<img src="./docs/minio.png" width="840px" alt="aino" />
+</div>
+
+
+## Start
 ```bash
-composer install --no-interaction --dev
+make start
 ```
 
-## Update
+## Stop
 ```bash
-composer update 
+make stop
 ```
 
 ## Test
 ```bash
-composer tests 
+make test
 ```
 
 ## Use the `S3FileSystem` in pure PHP

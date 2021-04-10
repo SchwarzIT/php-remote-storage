@@ -7,14 +7,24 @@ help:
 .DEFAULT_GOAL := help
 
 #-- start symfony & minio
-start: ## clean up all docker resource
+install: ## install the package for library & demo
+	cd package && composer install
+	cd s3-symfony-demo && composer install
+
+start: ## start the minIO docker and symfony web server
 	docker-compose up -d
 	cd s3-symfony-demo && symfony serve
 
 
 #-- stop symfony & minio
-stop: ## clean up all docker resource
+stop: ## stop the minIO docker and symfony web server
 	docker-compose stop
 	cd s3-symfony-demo && symfony server:stop
+
+
+#-- Start the tests
+test: ## start the unit tests
+	docker-compose up -d
+	cd package && composer run test
 
 
