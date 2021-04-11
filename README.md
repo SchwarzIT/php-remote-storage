@@ -36,12 +36,12 @@ the following remote storage are supported in this library:
 
 # Start
 ```bash
-git clone git@github.com:SchwarzIT/php-filesystem.git && cd php-filesystem
+git clone git@github.com:SchwarzIT/storage.git && cd storage
 make install
 make start
 ```
 
-> http://localhost:9001/ for `MinIO` bucket
+> http://localhost:9001/ for `MinIO` bucket (the credentials are test data for local env.)
 > - Access-Key: `I3uWTHZGke8RWa1j` 
 > - secret-Key: `G0OC3OYQ5Qw59z61`
 
