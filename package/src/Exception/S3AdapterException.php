@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Chapterphp\FileSystem\Exception;
+namespace Chapterphp\Storage\Exception;
 
 use Exception;
 

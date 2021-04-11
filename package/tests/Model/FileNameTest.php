@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Chapterphp\Tests\Model;
 
-use Chapterphp\FileSystem\Model\FileName;
+use Chapterphp\Storage\Model\FileName;
 use PHPUnit\Framework\TestCase;
 
 class FileNameTest extends TestCase

@@ -9,4 +9,4 @@ services:
                     key: '%env(S3_ACCESS_KEY)%'
                     secret: '%env(S3_ACCESS_SECRET)%'
 
-    Chapterphp\FileSystem\RemoteAdapterInterface: '@Chapterphp\FileSystem\S3Adapter'
+    Chapterphp\Storage\RemoteAdapterInterface: '@Chapterphp\Storage\S3Adapter'

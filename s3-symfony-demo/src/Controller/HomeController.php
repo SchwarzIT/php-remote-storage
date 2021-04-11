@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use Chapterphp\FileSystem\Model\FileMeta;
-use Chapterphp\FileSystem\Model\FileName;
-use Chapterphp\FileSystem\RemoteAdapterInterface;
+use Chapterphp\Storage\Model\FileMeta;
+use Chapterphp\Storage\Model\FileName;
+use Chapterphp\Storage\RemoteAdapterInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Chapterphp\FileSystem\Model;
+namespace Chapterphp\Storage\Model;
 
 use Symfony\Component\Uid\Uuid;
 use Webmozart\Assert\Assert;

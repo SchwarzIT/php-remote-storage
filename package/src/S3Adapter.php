@@ -2,18 +2,18 @@
 
 declare(strict_types = 1);
 
-namespace Chapterphp\FileSystem;
+namespace Chapterphp\Storage;
 
 use Aws\Command;
 use Aws\ResultPaginator;
 use Aws\S3\S3Client;
-use Chapterphp\FileSystem\Exception\S3AdapterException;
-use Chapterphp\FileSystem\Model\File;
-use Chapterphp\FileSystem\Model\FileMeta;
-use Chapterphp\FileSystem\Model\FileName;
+use Chapterphp\Storage\Exception\S3AdapterException;
+use Chapterphp\Storage\Model\File;
+use Chapterphp\Storage\Model\FileMeta;
+use Chapterphp\Storage\Model\FileName;
 use Throwable;
 
-final class S3Adapter implements RemoteAdapterInterface
+class S3Adapter implements RemoteAdapterInterface
 {
     // S3 related keys are capitalized
     private const KEY_S3_BODY = 'Body';

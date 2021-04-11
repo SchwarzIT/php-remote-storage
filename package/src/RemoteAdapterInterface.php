@@ -2,11 +2,11 @@
 
 declare(strict_types = 1);
 
-namespace Chapterphp\FileSystem;
+namespace Chapterphp\Storage;
 
-use Chapterphp\FileSystem\Model\File;
-use Chapterphp\FileSystem\Model\FileMeta;
-use Chapterphp\FileSystem\Model\FileName;
+use Chapterphp\Storage\Model\File;
+use Chapterphp\Storage\Model\FileMeta;
+use Chapterphp\Storage\Model\FileName;
 
 interface RemoteAdapterInterface
 {

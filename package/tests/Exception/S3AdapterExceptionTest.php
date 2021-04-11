@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace Chapterphp\Tests\Exception;
 
-use Chapterphp\FileSystem\Exception\S3AdapterException;
+use Chapterphp\Storage\Exception\S3AdapterException;
 use Exception;
 use PHPUnit\Framework\TestCase;
 
-class S3FileSystemExceptionTest extends TestCase
+class S3AdapterExceptionTest extends TestCase
 {
     public function testExceptionOnLoadObject(): void
     {

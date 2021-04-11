@@ -5,18 +5,18 @@ declare(strict_types = 1);
 namespace Chapterphp\Tests;
 
 use Aws\S3\S3Client;
-use Chapterphp\FileSystem\Model\File;
-use Chapterphp\FileSystem\Model\FileName;
-use Chapterphp\FileSystem\S3Adapter;
+use Chapterphp\Storage\Model\File;
+use Chapterphp\Storage\Model\FileName;
+use Chapterphp\Storage\S3Adapter;
 use PHPUnit\Framework\TestCase;
 use SplFileInfo;
 
-class S3FileSystemTest extends TestCase
+class S3AdapterTest extends TestCase
 {
     private const TEST_S3_BUCKET = 'test';
     private const TEST_S3_ENDPOINT = 'http://localhost:9001';
 
-    public function testS3FileSystem(): void
+    public function testS3Adapter(): void
     {
         $testFileName = FileName::create('sit.png');
 

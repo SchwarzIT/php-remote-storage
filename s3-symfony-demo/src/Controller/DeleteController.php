@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use Chapterphp\FileSystem\Model\FileName;
-use Chapterphp\FileSystem\RemoteAdapterInterface;
+use Chapterphp\Storage\Model\FileName;
+use Chapterphp\Storage\RemoteAdapterInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

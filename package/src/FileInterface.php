@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace Chapterphp\FileSystem;
+namespace Chapterphp\Storage;
 
-use Chapterphp\FileSystem\Model\FileName;
+use Chapterphp\Storage\Model\FileName;
 
 interface FileInterface
 {

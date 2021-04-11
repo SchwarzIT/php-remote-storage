@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Chapterphp\FileSystem\Utils;
+namespace Chapterphp\Storage\Utils;
 
 use Symfony\Component\Mime\MimeTypes;
 

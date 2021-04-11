@@ -1,6 +1,6 @@
 {
-    "name": "chapterphp/filesystem",
-    "description": "A php wrapper to manage the file system easily",
+    "name": "chapterphp/storage",
+    "description": "A remote file storage library for PHP & Symfony. It provides one interface to interact with common used remote filesystem.",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Chapterphp\\FileSystem\\": "src",
+            "Chapterphp\\Storage\\": "src",
             "Chapterphp\\Tests\\": "tests"
         }
     },

@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace Chapterphp\FileSystem\Model;
+namespace Chapterphp\Storage\Model;
 
-use Chapterphp\FileSystem\FileInterface;
-use Chapterphp\FileSystem\Utils\MimeTypeResolver;
+use Chapterphp\Storage\FileInterface;
+use Chapterphp\Storage\Utils\MimeTypeResolver;
 use Exception;
 use SplFileInfo;
 use SplFileObject;

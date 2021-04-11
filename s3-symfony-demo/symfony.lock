@@ -5,6 +5,9 @@
     "chapterphp/filesystem": {
         "version": "dev-master"
     },
+    "chapterphp/storage": {
+        "version": "dev-master"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
     },
