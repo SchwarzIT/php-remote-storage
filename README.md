@@ -34,12 +34,17 @@ the following remote storage are supported in this library:
 
 
 
-# Start
+# Install
 ```bash
 git clone git@github.com:SchwarzIT/storage.git && cd storage
 make install
-make test
 ```
+
+# Run Tests
+```bash
+make test 
+```
+
 
 > http://localhost:9001/ for `MinIO` bucket (the credentials are test data for local env.)
 > - Access-Key: `I3uWTHZGke8RWa1j` 
