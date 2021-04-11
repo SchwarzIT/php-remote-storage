@@ -1,7 +1,7 @@
 <div align="center">
   <img src="./docs/s3-php.png" width="540px" alt="aino" />
-  <h2>A Filesystem Wrapper for AWS S3</h2>
-  <p>Manage the remote files on AWS S3 simple as possible</p>
+  <h2>A minimal Remote Storage Library</h2>
+  <p>Manage the remote files with minimal dependency</p>
 
   <p>
     <a href="#">
@@ -15,7 +15,11 @@
 
 ---
 
-## 
+## Supported Remote Storage
+the following remote storage are supported in this library:
+- `AWS S3 Bucket` ✅
+- `SAFE` 🛠 
+- `MFT sftp` 🛠 
 
 <div align="center">
   <img src="./docs/minio.png" width="840px" alt="aino" />
