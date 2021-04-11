@@ -38,7 +38,7 @@ the following remote storage are supported in this library:
 ```bash
 git clone git@github.com:SchwarzIT/storage.git && cd storage
 make install
-make start
+make test
 ```
 
 > http://localhost:9001/ for `MinIO` bucket (the credentials are test data for local env.)
@@ -46,39 +46,26 @@ make start
 > - secret-Key: `G0OC3OYQ5Qw59z61`
 
 
-> https://127.0.0.1:8000/ for `Symfony demo App`
-
-
-# Stop
-```bash
-make stop
-```
-
-# Test
-```bash
-make test
-```
-
-## Use the `S3FileSystem` in pure PHP
+## Use the `S3Adapter` in pure PHP
 ```php
 // instantiate S3 File system
-$s3FileSystem = new S3FileSystem($s3Client, self::TEST_S3_BUCKET);
+$S3Adapter = new S3Adapter($s3Client, self::TEST_S3_BUCKET);
 
 // upload a test file
-$s3FileSystem->save($pngFile);
+$S3Adapter->save($pngFile);
 
 // delete a test file
-$s3FileSystem->delete($pdfFile);
+$S3Adapter->delete($pdfFile);
 
 // load a test file
-$s3FileSystem->get($pdfFile);
+$S3Adapter->get($pdfFile);
 
-// more info see S3FileSystemTest.php
+// more info see S3AdapterTest.php
 ```
 
-## Use the `S3FileSystem` in Symfony Project
+## Use the `S3Adapter` in Symfony Project
 
-config the `AWS S3 Client` and `S3FileSystem`
+config the `AWS S3 Client` and `S3Adapter`
 ```yaml
 ## config/packages/s3.yaml
 services:
@@ -92,27 +79,17 @@ services:
                     key: '%env(S3_ACCESS_KEY)%'
                     secret: '%env(S3_ACCESS_SECRET)%'
 
-    Chapterphp\FileSystem\FileSystemInterface: '@Chapterphp\FileSystem\S3FileSystem'
+    Chapterphp\Storage\RemoteStorageInterface: '@Chapterphp\Storage\S3Adapter'
 ```
 
 config the services for the package ``
 ```yaml
 ### config/services.yaml
 services:
-    Chapterphp\FileSystem\S3FileSystem:
+    Chapterphp\Storage\S3Adapter:
         arguments:
             $s3Bucket: '%env(S3_BUCKET)%'
 ```
-
-
-## Open Todos:
-- [✅] implement Symfony 5 Demo with AWS S3 Integraiton
-    - list files
-    - download file
-    - delete file
-    - upload file
-- [✅] update the README: how to config S3 client + S3FileSystem
-- [🔥] complete the unit tests
 
 ## licence
 

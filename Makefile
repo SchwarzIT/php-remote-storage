@@ -7,19 +7,11 @@ help:
 .DEFAULT_GOAL := help
 
 #-- Manage storage package and symfony demp app
-install: ## install the package for library & demo
-	cd s3-symfony-demo && composer install
-
-start: ## start the minIO docker and symfony web server
-	docker-compose up -d
-	cd s3-symfony-demo && symfony serve
-
-stop: ## stop the minIO docker and symfony web server
-	docker-compose stop
-	cd s3-symfony-demo && symfony server:stop
+install: ## start the unit tests
+	composer install
 
 test: ## start the unit tests
 	docker-compose up -d
-	cd package && composer run test
+	composer run test
 
 
