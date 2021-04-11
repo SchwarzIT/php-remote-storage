@@ -7,13 +7,13 @@ namespace Chapterphp\FileSystem;
 use Aws\Command;
 use Aws\ResultPaginator;
 use Aws\S3\S3Client;
-use Chapterphp\FileSystem\Exception\S3FileSystemException;
+use Chapterphp\FileSystem\Exception\S3AdapterException;
 use Chapterphp\FileSystem\Model\File;
 use Chapterphp\FileSystem\Model\FileMeta;
 use Chapterphp\FileSystem\Model\FileName;
 use Throwable;
 
-final class S3FileSystem implements FileSystemInterface
+final class S3Adapter implements RemoteAdapterInterface
 {
     // S3 related keys are capitalized
     private const KEY_S3_BODY = 'Body';
@@ -34,7 +34,7 @@ final class S3FileSystem implements FileSystemInterface
     /**
      * @return FileMeta[]
      *
-     * @throws S3FileSystemException
+     * @throws S3AdapterException
      */
     public function list(): array
     {
@@ -44,14 +44,14 @@ final class S3FileSystem implements FileSystemInterface
 
             $metaData = $this->iteratePaginator($paginator);
         } catch (\Exception $exception) {
-            S3FileSystemException::onListObjects($exception->getMessage());
+            S3AdapterException::onListObjects($exception->getMessage());
         }
 
         return $metaData;
     }
 
     /**
-     * @throws S3FileSystemException
+     * @throws S3AdapterException
      */
     public function get(FileName $fileName): ?File
     {
@@ -61,14 +61,14 @@ final class S3FileSystem implements FileSystemInterface
             $result = $this->s3Client->getObject($this->getObjectConfig($fileName));
             $body = $result->get(self::KEY_S3_BODY);
         } catch (Throwable $exception) {
-            S3FileSystemException::onLoadObject($exception->getMessage());
+            S3AdapterException::onLoadObject($exception->getMessage());
         }
 
         return $body === null ? null : File::createTempFile($fileName, (string) $body);
     }
 
     /**
-     * @throws S3FileSystemException
+     * @throws S3AdapterException
      */
     public function preview(FileName $fileName): string
     {
@@ -80,24 +80,24 @@ final class S3FileSystem implements FileSystemInterface
 
             return (string) $request->getUri();
         } catch (Throwable $exception) {
-            S3FileSystemException::onLoadObject($exception->getMessage());
+            S3AdapterException::onLoadObject($exception->getMessage());
         }
     }
 
     /**
-     * @throws S3FileSystemException
+     * @throws S3AdapterException
      */
     public function delete(FileName $fileName): void
     {
         try {
             $this->s3Client->deleteObject($this->getObjectConfig($fileName));
         } catch (Throwable $exception) {
-            S3FileSystemException::onDeleteObject($exception->getMessage());
+            S3AdapterException::onDeleteObject($exception->getMessage());
         }
     }
 
     /**
-     * @throws S3FileSystemException
+     * @throws S3AdapterException
      */
     public function save(File $file): string
     {
@@ -107,7 +107,7 @@ final class S3FileSystem implements FileSystemInterface
         try {
             $this->s3Client->putObject($config);
         } catch (Throwable $exception) {
-            S3FileSystemException::onSaveObject($exception->getMessage());
+            S3AdapterException::onSaveObject($exception->getMessage());
         }
 
         return $file->getFileName()->toString();

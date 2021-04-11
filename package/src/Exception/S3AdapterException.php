@@ -6,7 +6,7 @@ namespace Chapterphp\FileSystem\Exception;
 
 use Exception;
 
-final class S3FileSystemException extends Exception
+final class S3AdapterException extends Exception
 {
     public static function onListObjects(string $message): void
     {

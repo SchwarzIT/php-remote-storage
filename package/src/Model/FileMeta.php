@@ -52,6 +52,11 @@ class FileMeta
         return $this->previewUrl;
     }
 
+    public function getExtension(): string
+    {
+        return FileName::create($this->name)->getExtension();
+    }
+
     public function setPreviewUrl(string $previewUrl): self
     {
         $this->previewUrl = $previewUrl;

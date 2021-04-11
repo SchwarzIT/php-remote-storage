@@ -7,7 +7,7 @@ namespace Chapterphp\Tests;
 use Aws\S3\S3Client;
 use Chapterphp\FileSystem\Model\File;
 use Chapterphp\FileSystem\Model\FileName;
-use Chapterphp\FileSystem\S3FileSystem;
+use Chapterphp\FileSystem\S3Adapter;
 use PHPUnit\Framework\TestCase;
 use SplFileInfo;
 
@@ -21,7 +21,7 @@ class S3FileSystemTest extends TestCase
         $testFileName = FileName::create('sit.png');
 
         // 01: test saving the test file on s3
-        $fileSystem = new S3FileSystem($this->createTestClient(), self::TEST_S3_BUCKET);
+        $fileSystem = new S3Adapter($this->createTestClient(), self::TEST_S3_BUCKET);
 
         $pngFile = File::createFromFileInfo(new SplFileInfo(__DIR__ . '/' . $testFileName->toString()));
         $savedFileName = $fileSystem->save($pngFile);

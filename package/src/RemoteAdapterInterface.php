@@ -8,7 +8,7 @@ use Chapterphp\FileSystem\Model\File;
 use Chapterphp\FileSystem\Model\FileMeta;
 use Chapterphp\FileSystem\Model\FileName;
 
-interface FileSystemInterface
+interface RemoteAdapterInterface
 {
     /**
      * @return FileMeta[]

@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Chapterphp\Tests\Exception;
 
-use Chapterphp\FileSystem\Exception\S3FileSystemException;
+use Chapterphp\FileSystem\Exception\S3AdapterException;
 use Exception;
 use PHPUnit\Framework\TestCase;
 
@@ -12,25 +12,25 @@ class S3FileSystemExceptionTest extends TestCase
 {
     public function testExceptionOnLoadObject(): void
     {
-        $this->expectException(S3FileSystemException::class);
+        $this->expectException(S3AdapterException::class);
 
         $exception = new Exception('onLoad');
-        S3FileSystemException::onLoadObject($exception->getMessage());
+        S3AdapterException::onLoadObject($exception->getMessage());
     }
 
     public function testExceptionOnDelete(): void
     {
-        $this->expectException(S3FileSystemException::class);
+        $this->expectException(S3AdapterException::class);
 
         $exception = new Exception('onDelete');
-        S3FileSystemException::onDeleteObject($exception->getMessage());
+        S3AdapterException::onDeleteObject($exception->getMessage());
     }
 
     public function testExceptionOnPut(): void
     {
-        $this->expectException(S3FileSystemException::class);
+        $this->expectException(S3AdapterException::class);
 
         $exception = new Exception('onSave');
-        S3FileSystemException::onSaveObject($exception->getMessage());
+        S3AdapterException::onSaveObject($exception->getMessage());
     }
 }
