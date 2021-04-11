@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use Chapterphp\FileSystem\FileSystemInterface;
 use Chapterphp\FileSystem\Model\File;
+use Chapterphp\FileSystem\RemoteAdapterInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,12 +14,12 @@ class UploadController extends AbstractController
     /**
      * @Route("/upload", name="upload", methods={"POST"})
      */
-    public function __invoke(Request $request, FileSystemInterface $s3FileSystem): Response
+    public function __invoke(Request $request, RemoteAdapterInterface $s3Adapter): Response
     {
         $file = File::createFromUpload($request->files->get('upload'));
 
-        $s3FileSystem->save($file);
+        $s3Adapter->save($file);
 
-        return new Response(null,201);
+        return new Response(null, 201);
     }
 }

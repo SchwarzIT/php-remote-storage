@@ -26,6 +26,7 @@
             <table class="content">
                 <tr>
                     <th>Name</th>
+                    <th>Type</th>
                     <th>Size (bytes)</th>
                     <th>Last Modified</th>
                     <th>Action</th>
@@ -33,6 +34,7 @@
                 {% for fileMeta in items %}
                     <tr>
                         <td>{{ fileMeta.name }}</td>
+                        <td>{{ fileMeta.extension | upper }}</td>
                         <td>{{ fileMeta.size }}</td>
                         <td>{{ fileMeta.lastModified | date("d-m-Y H:i:s") }}</td>
                         <td>

@@ -2,9 +2,7 @@
 
 namespace App\Controller;
 
-use Chapterphp\FileSystem\FileSystemInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,8 +14,8 @@ class DownloadController extends AbstractController
      *
      * @Route("/download", name="download")
      */
-    public function __invoke(Request $request, FileSystemInterface $fileSystem): Response
+    public function __invoke(Request $request): Response
     {
-        return new Response(null,200);
+        return new Response(null, 200);
     }
 }

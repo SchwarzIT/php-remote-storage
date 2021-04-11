@@ -2,20 +2,20 @@
 
 namespace App\Controller;
 
-use Chapterphp\FileSystem\FileSystemInterface;
 use Chapterphp\FileSystem\Model\FileMeta;
 use Chapterphp\FileSystem\Model\FileName;
+use Chapterphp\FileSystem\RemoteAdapterInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    private $s3FileSystem;
+    private $s3Adapter;
 
-    public function __construct(FileSystemInterface $s3FileSystem)
+    public function __construct(RemoteAdapterInterface $s3Adapter)
     {
-        $this->s3FileSystem = $s3FileSystem;
+        $this->s3Adapter = $s3Adapter;
     }
 
     /**
@@ -23,7 +23,7 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        $fileMetaList = $this->s3FileSystem->list();
+        $fileMetaList = $this->s3Adapter->list();
 
         return $this->render(
             'home/index.html.twig',
@@ -40,11 +40,15 @@ class HomeController extends AbstractController
      */
     private function resolvePreviewUrl(array $fileMetaList): array
     {
-        $fileSystem = $this->s3FileSystem;
-        return array_map(function (FileMeta $fileMeta) use ($fileSystem) {
-            $previewUrl = $fileSystem->preview(FileName::create($fileMeta->getName()));
+        $fileSystem = $this->s3Adapter;
 
-            return $fileMeta->setPreviewUrl($previewUrl);
-        }, $fileMetaList);
+        return array_map(
+            function (FileMeta $fileMeta) use ($fileSystem) {
+                $previewUrl = $fileSystem->preview(FileName::create($fileMeta->getName()));
+
+                return $fileMeta->setPreviewUrl($previewUrl);
+            },
+            $fileMetaList
+        );
     }
 }
