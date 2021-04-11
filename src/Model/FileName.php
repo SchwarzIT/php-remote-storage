@@ -78,7 +78,7 @@ class FileName
         $extension = pathinfo($name, PATHINFO_EXTENSION);
 
         Assert::notEmpty($base, sprintf('Invalid base name: "%s"', $base));
-        Assert::notEmpty($extension, sprintf('Invalid extension name: "%s"', $extension));
+        //Assert::notEmpty($extension, sprintf('Invalid extension name: "%s"', $extension));
 
         return [$base, $extension];
     }
