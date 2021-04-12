@@ -16,10 +16,16 @@
 ---
 
 ## Supported Remote Storage
+There is [Symfony Demo Application](https://github.com/SchwarzIT/storage-symfony-demo) that shows the detailed implementation for `chapterphp/storage`
+
 the following remote storage are supported in this library:
 - `AWS S3 Bucket` ✅
 - `SAFE` 🛠 
 - `MFT sftp` 🛠 
+
+> HINT: 
+> - `SAFE` is RESTful archiving solution in STACKIT
+> - `MFT` provides the simple document sharing via `sftp` in STACKIT.
 
 <div align="center">
   <img src="./docs/minio.png" width="840px" alt="aino" />
