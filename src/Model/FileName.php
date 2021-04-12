@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace Chapterphp\Storage\Model;
 
+use Chapterphp\Storage\Exception\FileStorageException;
 use Symfony\Component\Uid\Uuid;
-use Webmozart\Assert\Assert;
 
 class FileName
 {
@@ -71,14 +71,16 @@ class FileName
 
     /**
      * @return string[]
+     * @throws FileStorageException
      */
     private static function resolveFileName(string $name): array
     {
         $base = pathinfo($name, PATHINFO_FILENAME);
         $extension = pathinfo($name, PATHINFO_EXTENSION);
 
-        Assert::notEmpty($base, sprintf('Invalid base name: "%s"', $base));
-        //Assert::notEmpty($extension, sprintf('Invalid extension name: "%s"', $extension));
+        if (empty($base)) {
+            throw FileStorageException::onInvalidFileName($name);
+        }
 
         return [$base, $extension];
     }

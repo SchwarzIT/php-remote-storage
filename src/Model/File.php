@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace Chapterphp\Storage\Model;
 
+use Chapterphp\Storage\Exception\FileStorageException;
 use Chapterphp\Storage\FileInterface;
 use Chapterphp\Storage\Utils\MimeTypeResolver;
-use Exception;
 use SplFileInfo;
 use SplFileObject;
 use SplTempFileObject;
@@ -119,7 +119,7 @@ class File implements FileInterface
 
         $content = file_get_contents($location);
         if (false === $content) {
-            throw new Exception(sprintf('Read the content from %s failed!', $location));
+            throw FileStorageException::onFailureInFilesystem($location);
         }
 
         return $content;
