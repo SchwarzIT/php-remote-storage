@@ -29,14 +29,16 @@ the following remote storage are supported in this library:
 
 <div align="center">
   <img src="./docs/minio.png" width="840px" alt="aino" />
-  <span>I used the `MinIO` docker instead of AWS S3 for local testing</span>
 </div>
+
+> I used the `MinIO` docker instead of AWS S3 for local testing
 
 
 <div align="center">
   <img src="./docs/symfony-demo.png" width="840px" alt="aino" />
-  <span>List, download, delete, upload file object in Symfony5 Demo</span>
 </div>
+
+> Symfony + AWS S3 Demo: List, download, delete, upload file object in Symfony5 Demo
 
 
 
