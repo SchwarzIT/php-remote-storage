@@ -20,12 +20,8 @@ There is [Symfony Demo Application](https://github.com/SchwarzIT/storage-symfony
 
 the following remote storage are supported in this library:
 - `AWS S3 Bucket` ✅
-- `SAFE` 🛠 
-- `MFT sftp` 🛠 
+- `SFTP file server` 🛠 
 
-> HINT: 
-> - `SAFE` is RESTful archiving solution in STACKIT
-> - `MFT` provides the simple document sharing via `sftp` in STACKIT.
 
 <div align="center">
   <img src="./docs/minio.png" width="840px" alt="aino" />
