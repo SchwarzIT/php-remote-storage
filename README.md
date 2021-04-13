@@ -23,9 +23,7 @@ the following remote storage are supported in this library:
 - `SFTP file server` 🛠 
 
 
-<div align="center">
-  <img src="./docs/minio.png" width="840px" alt="aino" />
-</div>
+![minio](./docs/minio.png "MinIO")
 
 > I used the `MinIO` docker instead of AWS S3 for local testing
 
