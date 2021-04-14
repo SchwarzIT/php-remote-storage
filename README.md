@@ -69,7 +69,7 @@ $S3Adapter->delete($pdfFile);
 // load a test file
 $S3Adapter->get($pdfFile);
 
-// more info see S3AdapterTest.php
+// @more info see S3AdapterTest.php
 ```
 
 ## Use the `S3Adapter` in Symfony Project
