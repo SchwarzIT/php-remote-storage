@@ -1,6 +1,6 @@
 <div align="center">
   <img src="https://dev.azure.com/schwarzit/a93859d1-1284-447d-9b34-67bc9cd2f7e4/_apis/git/repositories/864cdd5a-4a4d-4827-ae11-5fa932508c36/items?path=%2Fdocs%2Fs3-php.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=main&resolveLfs=true&%24format=octetStream&api-version=5.0" width="540px" alt="aino" />
-  <h2>A minimal Remote Storage Library</h2>
+  <h2>A Minimal Remote Storage Library</h2>
   <p>Manage the remote files with minimal dependency</p>
 
   <p>
@@ -8,8 +8,12 @@
       <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome">
     </a>
     <a href="#">
-      <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square" alt="MIT License">
+      <img src="https://img.shields.io/badge/SIT-ChapterDigital-blueviolet.svg?style=flat-square" alt="chapter-php">
     </a>
+    <a href="#">
+      <img src="https://img.shields.io/badge/SIT-ChapterPhp-blue.svg?style=flat-square" alt="chapter-php">
+    </a>
+    
   </p>
 </div>
 
