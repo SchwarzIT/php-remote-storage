@@ -1,7 +1,7 @@
 {
     "name": "chapterphp/storage",
     "description": "A remote file storage library for PHP & Symfony. It provides one interface to interact with common used remote filesystem.",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "type": "library",
     "authors": [
         {
