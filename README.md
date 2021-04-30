@@ -1,14 +1,11 @@
 <div align="center">
-  <img src="https://dev.azure.com/schwarzit/a93859d1-1284-447d-9b34-67bc9cd2f7e4/_apis/git/repositories/864cdd5a-4a4d-4827-ae11-5fa932508c36/items?path=%2Fdocs%2Fs3-php.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=main&resolveLfs=true&%24format=octetStream&api-version=5.0" width="540px" alt="aino" />
-  <h2>A Minimal Remote Storage Library</h2>
+  <img src="docs/php.png" width="240px" alt="aino" />
+  <h2>A Minimal PHP Remote Storage Library</h2>
   <p>Manage the remote files with minimal dependency</p>
 
   <p>
     <a href="#">
       <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome">
-    </a>
-    <a href="#">
-      <img src="https://img.shields.io/badge/SIT-ChapterDigital-blueviolet.svg?style=flat-square" alt="chapter-php">
     </a>
     <a href="#">
       <img src="https://img.shields.io/badge/SIT-ChapterPhp-blue.svg?style=flat-square" alt="chapter-php">
@@ -20,7 +17,6 @@
 ---
 
 ## Supported Remote Storage
-There is [Symfony Demo Application](https://github.com/SchwarzIT/storage-symfony-demo) that shows the detailed implementation for `chapterphp/storage`
 
 the following remote storage are supported in this library:
 - `AWS S3 Bucket` ✅
@@ -28,23 +24,22 @@ the following remote storage are supported in this library:
 
 
 <div align="center">
-  <img src="https://dev.azure.com/schwarzit/a93859d1-1284-447d-9b34-67bc9cd2f7e4/_apis/git/repositories/864cdd5a-4a4d-4827-ae11-5fa932508c36/items?path=%2Fdocs%2Fminio.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=octetStream&api-version=5.0" width="840px" alt="aino" />
+  <img src="docs/s3-php.png" width="840px" alt="aino" />
 </div>
 
 > I used the `MinIO` docker instead of AWS S3 for local testing
 
 
 <div align="center">
-  <img src="https://dev.azure.com/schwarzit/a93859d1-1284-447d-9b34-67bc9cd2f7e4/_apis/git/repositories/864cdd5a-4a4d-4827-ae11-5fa932508c36/items?path=%2Fdocs%2Fsymfony-demo.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=main&resolveLfs=true&%24format=octetStream&api-version=5.0" width="840px" alt="aino" />
+  <img src="docs/minio.png" width="840px" alt="aino" />
 </div>
 
 > Symfony + AWS S3 Demo: List, download, delete, upload file object in Symfony5 Demo
 
 
-
 # Install
 ```bash
-git clone git@github.com:SchwarzIT/storage.git && cd storage
+git clone https://github.com/SchwarzIT/php-remote-storage.git storage && cd storage
 make install
 ```
 
